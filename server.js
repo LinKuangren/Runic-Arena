@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 var cors = require("cors");
+const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('front'));
 
 app.use(cors());
 
@@ -14,6 +16,7 @@ const blogRouter = require("./routes/blog.js");
 // ROUTES
 app.use("/", globalRouter);
 app.use("/blog", blogRouter);
+
 
 // SERVER
 const hostname = "127.0.0.1";

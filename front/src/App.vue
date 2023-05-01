@@ -1,6 +1,10 @@
 <template>
   <main>
-    <RouterView></RouterView>
+    <Navigation/>
+    <div class="main">
+      <RouterView></RouterView>
+    </div>
+    <Footer/>
   </main>
 </template>
 

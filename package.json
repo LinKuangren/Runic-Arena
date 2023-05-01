@@ -1,11 +1,12 @@
 {
   "name": "runic-arena",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projet école API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "start": "nodemon server",
+    "dev": "vite"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +18,6 @@
   },
   "devDependencies": {
     "prisma": "^4.13.0"
-  }
+  },
+  "keywords": []
 }
