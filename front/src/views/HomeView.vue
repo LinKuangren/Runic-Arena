@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>Accueil</h1>
+    <h1>AccueilS</h1>
   </main>
 </template>
 

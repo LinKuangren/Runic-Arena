@@ -11,18 +11,21 @@ datasource db {
 }
 
 model Card {
-  id           Int          @id @default(autoincrement())
-  name         String
-  illustration String
-  type         Type?        @relation(fields: [typeId], references: [id])
-  typeId       Int?
-  class        Class?       @relation(fields: [classId], references: [id])
-  classId      Int?
-  power        Int
-  Ability      Ability[]
-  Competence   Competence[]
-  color       String
-  description String
+  id                   Int                          @id @default(autoincrement())
+  name                 String
+  illustration         String
+  type                 Type?                        @relation(fields: [typeId], references: [id])
+  typeId               Int?
+  class                Class?                       @relation(fields: [classId], references: [id])
+  classId              Int?
+  power                Int
+  Ability              Ability[]
+  competenceId         Int
+  competence_passive   Competence?                   @relation(fields: [competenceId], references: [id])
+  competences_active   CartesCapacictesActive[]
+  cost                 String
+  color                String
+  description          String
 }
 
 model Type {
@@ -40,16 +43,24 @@ model Class {
 model Ability {
   id          Int    @id @default(autoincrement())
   name        String
-  cost        Int
+  description String
   card        Card?  @relation(fields: [cardId], references: [id])
   cardId      Int?
 }
 
 model Competence {
-  id      Int     @id @default(autoincrement())
-  name    String
-  effect  Int
-  percent Boolean
-  card    Card?   @relation(fields: [cardId], references: [id])
-  cardId  Int?
+  id            Int     @id @default(autoincrement())
+  name          String
+  description   String
+  card_passvie  Card[]
+  card_active   CartesCapacictesActive[]
+}
+
+model CartesCapacictesActive {
+  competenceId  Int
+  competence    Competence @relation(fields: [competenceId], references: [id])
+  cardId        Int
+  card          Card     @relation(fields: [cardId], references: [id])
+
+  @@id([competenceId, cardId])
 }

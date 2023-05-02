@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 var cors = require("cors");
-const path = require('path');
+var  Jimp  =  requiert ( "jimp" ) ; 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -10,12 +10,14 @@ app.use(express.static('front'));
 app.use(cors());
 
 // ROUTERS
-const globalRouter = require("./routes/global.js");
-const blogRouter = require("./routes/blog.js");
+var globalRouter = require("./routes/global.js");
+var blogRouter = require("./routes/blog.js");
+var competencesRouter = require('./routes/competences');
 
 // ROUTES
 app.use("/", globalRouter);
 app.use("/blog", blogRouter);
+app.use("/competences", competencesRouter);
 
 
 // SERVER

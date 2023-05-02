@@ -25,7 +25,7 @@ const router = createRouter({
       component: TypesView,
     },
     {
-      path: "/new-types",
+      path: "/types/new-types",
       name: "new-type",
       component: NewtypesView,
     },
@@ -35,7 +35,7 @@ const router = createRouter({
       component: CapacitesView,
     },
     {
-      path: "/new-capacites",
+      path: "/capacites/new-capacites",
       name: "new-capacites",
       component: NewcapacitesView,
     },
@@ -45,7 +45,7 @@ const router = createRouter({
       component: ClassesView,
     },
     {
-      path: "/new-classes",
+      path: "/classes/new-classes",
       name: "new-classes",
       component: NewclassesView,
     },
@@ -55,7 +55,7 @@ const router = createRouter({
       component: CompetencesView,
     },
     {
-      path: "/new-competences",
+      path: "/competences/new-competences",
       name: "new-competences",
       component: NewcompetencesView,
     },

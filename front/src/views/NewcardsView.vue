@@ -1,9 +1,9 @@
 <template>
   <main>
     <h1>Nouvelle carte</h1>
-    name <input v-model="name" type="text" /> illustration
-    <input v-model="illustration" type="text" /> power
-    <input v-model="power" type="number" />
+    name <input v-model="name" type="text" /> 
+    illustration <input v-model="illustration" type="text" /> 
+    power <input v-model="power" type="number" />
     <button @click="createCard">Envoyer</button>
   </main>
 </template>
