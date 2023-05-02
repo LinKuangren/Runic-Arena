@@ -1,2 +1,6 @@
 # Runic-Arena
-Projet école API
+Lancer 2 terminaux
+- npm run start
+
+-cd front
+ npm run dev
