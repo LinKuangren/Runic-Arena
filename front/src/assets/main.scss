@@ -73,12 +73,25 @@ p {
     border: none;
 }
 
+.gdc:hover{
+    background-color: var(--black);
+    color:var(--black);
+}
+
+.gdc-2:hover{
+    background-color: var(--black);
+}
+
 .gdc-color-1 {
     background-color: var(--bleu);
 }
 
 .gdc-color-2 {
     background-color: var(--bleugris);
+}
+
+.gdc-color-2:hover {
+    background-color: var(--black);
 }
 
 .cta-edit {
@@ -95,6 +108,60 @@ p {
 
 .main {
     padding: 0 4rem;
+}
+
+.accueil {
+    display: grid;
+    margin: 3rem 0;
+}
+
+.div-accueil {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+}
+
+.cta-accueil {
+    padding: 3rem 0;
+    border: none;
+    background-color: var(--bleugris);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cta-accueil-1 {
+    background-color: var(--bleugris);
+    color: white;
+}
+
+.cta-accueil-1:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.cta-accueil-2 {
+    background-color: white;
+    color: var(--bleugris);
+    margin: 0.8rem 0.4rem 0.8rem 0;
+}
+
+.cta-accueil-2:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.cta-accueil-3 {
+    background-color: white;
+    color: var(--bleugris);
+    margin: 0.8rem 0 0.8rem 0.4rem;
+}
+
+.cta-accueil-3:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 ul {
