@@ -6,6 +6,15 @@ body {
     margin: 0;
 }
 
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+}
+
 #app {
     background-color: var(--bleupale);
 }
@@ -73,4 +82,21 @@ body {
 
 .main {
     padding: 0 4rem;
+}
+
+ul {
+    display: grid;
+    list-style-type: none;
+    margin: 0;
+    padding-inline-start: 0;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+li {
+    margin: 1rem 2rem;
+    text-align: center;
+}
+
+.cta-create {
+    text-align: center;
 }
