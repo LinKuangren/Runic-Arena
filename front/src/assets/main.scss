@@ -223,3 +223,23 @@ li p {
     border-radius: 0.3rem;
 }
 
+.type-class {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CA {
+    font-family: "Lato", sans-serif;
+    text-align: center;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.CA-space {
+    justify-content: space-between;
+    display: flex;
+}
+
+.CA-space-cc {
+    display: flex;
+}

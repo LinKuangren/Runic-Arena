@@ -10,10 +10,10 @@ router.get('/', async function(req, res, next) {
 
 
 router.post('/new-cartes', async function(req, res){
-    const { name } = req.body;
+    const { name, illustration, type, classe, power, capacite, cost, color, description } = req.body;
 
     const cartes = await prisma.carte.create({
-        data: { name },
+        data: { name, illustration, type, classe, power, capacite,cost, color, description },
     });
 
     res.status(200).json({ message: 'Nouvelle carte ajouté.'})
@@ -21,7 +21,7 @@ router.post('/new-cartes', async function(req, res){
 
 
 router.delete("/:id", async function (req, res) {
-    const cartes = await prisma.carte.delete({
+    const carte = await prisma.competence.delete({
         where: {
             id: parseInt(req.params.id)
         }
@@ -37,17 +37,17 @@ router.get('/:id', async function(req, res){
         },
     });
 
-    res.send(capacites);
+    res.send(cartes);
 });
  
 router.put("/:id", async function (req, res) {
-    const { name} = req.body;
+    const { name, illustration, type, classe, power, capacite,cost, color, description } = req.body;
 
-    const capacites = await prisma.capacite.update({
+    const cartes = await prisma.carte.update({
         where: {
             id: parseInt(req.params.id)
         },
-        data: { name },
+        data: { name, illustration, type, classe, power, capacite,cost, color, description },
     });
 
     res.status(200).json({ message: `La carte est modifié.` });
