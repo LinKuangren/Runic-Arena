@@ -10,10 +10,10 @@ router.get('/', async function(req, res, next) {
 
 
 router.post('/new-competences', async function(req, res){
-    const { name, description } = req.body;
+    const { name, type, description } = req.body;
 
     const competences = await prisma.competence.create({
-        data: { name, description },
+        data: { name, type, description },
     });
 
     res.status(200).json({ message: 'Nouvelle compétence ajouté.'})
@@ -41,13 +41,13 @@ router.get('/:id', async function(req, res){
 });
  
 router.put("/:id", async function (req, res) {
-    const { name, description } = req.body;
+    const { name, type, description } = req.body;
 
     const competences = await prisma.competence.update({
         where: {
             id: parseInt(req.params.id)
         },
-        data: { name, description },
+        data: { name, type, description },
     });
 
     res.status(200).json({ message: `La compétence est modifié.` });

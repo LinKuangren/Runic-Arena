@@ -11,12 +11,20 @@ app.use(cors());
 // ROUTERS
 var globalRouter = require("./routes/global.js");
 var competencesRouter = require('./routes/competences');
+var typesRouter = require('./routes/types');
+var classesRouter = require('./routes/classes');
+var capacitesRouter = require('./routes/capacites');
+var cartesRouter = require('./routes/cartes');
 
 // ROUTES
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/", globalRouter);
 app.use("/competences", competencesRouter);
+app.use("/types", typesRouter);
+app.use("/classes", classesRouter);
+app.use("/capacites", capacitesRouter);
+app.use("/cartes", cartesRouter);
 
 
 // SERVER

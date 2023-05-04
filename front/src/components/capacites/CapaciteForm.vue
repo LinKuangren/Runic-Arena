@@ -1,9 +1,7 @@
 <template>
-  <form v-on:submit="createCompetence" action="http://localhost:5173/competences" class="form">
+  <form v-on:submit="createCapacite" action="http://localhost:5173/capacites" class="form">
     <label>Nom</label>
     <input type="text" v-model="name" required>
-    <label>Type</label>
-    <input type="text" v-model="type" required>
     <label>Description</label>
     <textarea v-model="description"></textarea>
     <button class="gdc-2 gdc-color-2">Envoyer</button>
@@ -16,12 +14,11 @@ export default {
     return {
       name: "",
       description: "",
-      type: "",
     };
   },
   methods: {
-    async createCompetence() {
-      const response = await fetch("http://127.0.0.1:5173/competences/new-competences", {
+    async createCapacite() {
+      const response = await fetch("http://127.0.0.1:5173/capacites/new-capacites", {
         method: "POST",
         headers: {
           "Accept": "application/json",
@@ -30,13 +27,12 @@ export default {
         body: JSON.stringify({
           name: this.name,
           description: this.description,
-          type: this.type,
         }),
       });
       console.log(response);
       if (response.ok) {
-        const competence = await response.json();
-        console.log('Compétence ajoutée :', competence);
+        const capacite = await response.json();
+        console.log('Capacite ajoutée :', capacite);
       }
     },
   },

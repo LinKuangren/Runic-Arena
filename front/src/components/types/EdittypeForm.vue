@@ -1,11 +1,7 @@
 <template>
-      <form v-on:submit="updateCompetence" action="http://localhost:5173/competences" class="form">
+      <form v-on:submit="updateType" action="http://localhost:5173/types" class="form">
           <label>Nom</label>
           <input type="text" v-model="name" required>
-          <label>Type</label>
-          <input type="text" v-model="type" required>
-          <label>Description</label>
-          <textarea v-model="description"></textarea>
           <button class="gdc-2 gdc-color-2" type="submit">Modifier</button>
       </form>
 </template>
@@ -16,33 +12,29 @@ export default {
     return {
       id: this.$route.params.id,
       name: "",
-      description: "",
-      type: "",
     };
   },
   created() {
-    this.fetchCompetence();
+    this.fetchType();
   },
   methods: {
-    fetchCompetence() {
-      fetch(`http://127.0.0.1:5173/competences/${this.id}`)
+    fetchType() {
+      fetch(`http://127.0.0.1:5173/types/${this.id}`)
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Erreur lors de la récupération de la compétence");
+            throw new Error("Erreur lors de la récupération du type");
           }
           return response.json();
         })
         .then((data) => {
           this.name = data.name
-          this.description = data.description
-          this.type = data.type
         })
         .catch((error) => {
           console.error(error);
         });
     },
-    updateCompetence() {
-      fetch(`http://127.0.0.1:5173/competences/${this.id}`, {
+    updateType() {
+      fetch(`http://127.0.0.1:5173/types/${this.id}`, {
         method: "PUT",
         headers: {
           "Accept": "application/json",
@@ -50,15 +42,13 @@ export default {
         },
         body: JSON.stringify({
           name: this.name,
-          description: this.description,
-          type: this.type
         }),
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Erreur lors de la mise à jour de la compétence");
+            throw new Error("Erreur lors de la mise à jour du type");
           }
-          this.$router.push({ name: "Competences" });
+          this.$router.push({ name: "Types" });
         })
         .catch((error) => {
           console.error(error);

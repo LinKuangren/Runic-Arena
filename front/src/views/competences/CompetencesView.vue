@@ -3,17 +3,18 @@
         <h1>Compétences</h1>
         <div class="cta-create">
             <router-link to="/competences/new-competences">
-                <button class="gdc-2">Créer une compétence</button>
+                <button class="gdc-2 gdc-color-2">Créer une compétence</button>
             </router-link>
         </div>
         <ul>
             <li v-for="(competence) in competences" :key="competence.id">
                 <h2>{{ competence.name }}</h2>
+                <h3>{{ competence.type }}</h3>
                 <p>{{ competence.description }}</p>
                 <div class="del-put">
-                    <button class="gdc-2" @click="deleteCompetences(competence.id)">Supprimer</button>
-                    <router-link :to="`/competences/edit/${competence.id}`">
-                        <button class="gdc-2">Modifier</button>
+                    <button class="gdc-2 gdc-color-1" @click="deleteCompetences(competence.id)">Supprimer</button>
+                    <router-link :to="`/competences/edit/${competence.id}`" class="cta-edit">
+                        <button class="gdc-2 gdc-color-2">Modifier</button>
                     </router-link>
                 </div>
             </li>

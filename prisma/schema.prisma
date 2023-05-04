@@ -10,16 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Card {
+model Carte {
   id                   Int                          @id @default(autoincrement())
   name                 String
   illustration         String
   type                 Type?                        @relation(fields: [typeId], references: [id])
   typeId               Int?
-  class                Class?                       @relation(fields: [classId], references: [id])
-  classId              Int?
+  classe               Classe?                       @relation(fields: [classeId], references: [id])
+  classeId             Int?
   power                Int
-  Ability              Ability[]
+  Capacite             Capacite[]
   competenceId         Int
   competence_passive   Competence?                   @relation(fields: [competenceId], references: [id])
   competences_active   CartesCapacictesActive[]
@@ -31,36 +31,37 @@ model Card {
 model Type {
   id   Int    @id @default(autoincrement())
   name String
-  Card Card[]
+  Carte Carte[]
 }
 
-model Class {
+model Classe {
   id   Int    @id @default(autoincrement())
   name String
-  Card Card[]
+  Carte Carte[]
 }
 
-model Ability {
+model Capacite {
   id          Int    @id @default(autoincrement())
   name        String
   description String
-  card        Card?  @relation(fields: [cardId], references: [id])
-  cardId      Int?
+  Carte        Carte?  @relation(fields: [carteId], references: [id])
+  carteId      Int?
 }
 
 model Competence {
   id            Int     @id @default(autoincrement())
   name          String
+  type          String
   description   String
-  card_passvie  Card[]
-  card_active   CartesCapacictesActive[]
+  carte_passvie  Carte[]
+  carte_active   CartesCapacictesActive[]
 }
 
 model CartesCapacictesActive {
   competenceId  Int
   competence    Competence @relation(fields: [competenceId], references: [id])
-  cardId        Int
-  card          Card     @relation(fields: [cardId], references: [id])
+  carteId        Int
+  carte          Carte     @relation(fields: [carteId], references: [id])
 
-  @@id([competenceId, cardId])
+  @@id([competenceId, carteId])
 }
