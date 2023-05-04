@@ -61,7 +61,7 @@ const router = createRouter({
       component: NewcompetencesView,
     },
     {
-      path: "/competences/edit/${id}",
+      path: "/competences/edit/:id",
       name: "edit-competences",
       component: EditcompetencesView,
     },

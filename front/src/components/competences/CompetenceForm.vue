@@ -23,7 +23,6 @@ export default {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          // like application/json or text/xml
         },
         body: JSON.stringify({
           name: this.name,

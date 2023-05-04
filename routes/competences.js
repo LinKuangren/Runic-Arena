@@ -30,8 +30,17 @@ router.delete("/:id", async function (req, res) {
     res.status(200).json({ message: `La compétence est supprimé.` });
 });
 
+router.get('/:id', async function(req, res){
+    const competences = await prisma.competence.findUnique({
+        where: {
+            id: parseInt(req.params.id)
+        },
+    });
+
+    res.send(competences);
+});
  
-router.put("/edit/:id", async function (req, res) {
+router.put("/:id", async function (req, res) {
     const { name, description } = req.body;
 
     const competences = await prisma.competence.update({

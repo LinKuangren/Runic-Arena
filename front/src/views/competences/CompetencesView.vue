@@ -12,7 +12,7 @@
                 <p>{{ competence.description }}</p>
                 <div class="del-put">
                     <button class="gdc-2" @click="deleteCompetences(competence.id)">Supprimer</button>
-                    <router-link to="/competences/edit/${id}">
+                    <router-link :to="`/competences/edit/${competence.id}`">
                         <button class="gdc-2">Modifier</button>
                     </router-link>
                 </div>

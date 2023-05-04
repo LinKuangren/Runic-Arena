@@ -1,5 +1,5 @@
 <template>
-      <form v-on:submit="updateCompetence" :action="`/competences/edit/${id}`">
+      <form v-on:submit="updateCompetence" action="http://localhost:5173/competences">
           <label>Nom</label>
           <input type="text" v-model="name" required>
           <label>Description</label>
@@ -37,13 +37,12 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-        console.log(this.id)
     },
     updateCompetence() {
       fetch(`http://127.0.0.1:5173/competences/${this.id}`, {
         method: "PUT",
         headers: {
-          Accept: "application/json",
+          "Accept": "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
