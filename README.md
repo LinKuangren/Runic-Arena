@@ -5,3 +5,7 @@ Lancer 2 terminaux
 
 - cd front
 - npm run dev
+
+----------------------
+Lancer prisma
+-npx prisma studio
