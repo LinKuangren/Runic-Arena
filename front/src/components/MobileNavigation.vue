@@ -1,8 +1,5 @@
 <template>
-    <div class="header">
-        <router-link to="/">
-            <img src="../assets/logo.png" alt="Logo-site" href="../views/HomeView.vue">
-        </router-link>
+    <div class="header-mobile">
         <div class="header-end">
             <div class="header-left">
                 <nav>
