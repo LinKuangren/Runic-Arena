@@ -11,57 +11,56 @@ datasource db {
 }
 
 model Carte {
-  id                   Int                          @id @default(autoincrement())
-  name                 String
-  illustration         String
-  type                 Type?                        @relation(fields: [typeId], references: [id])
-  typeId               Int?
-  classe               Classe?                       @relation(fields: [classeId], references: [id])
-  classeId             Int?
-  power                Int
-  Capacite             Capacite[]
-  competenceId         Int
-  competence_passive   Competence?                   @relation(fields: [competenceId], references: [id])
-  competences_active   CartesCapacictesActive[]
-  cost                 String
-  color                String
-  description          String
+  id               Int                      @id @default(autoincrement())
+  name             String
+  illustration     String
+  type             Type?                    @relation(fields: [typeId], references: [id])
+  typeId           Int?
+  classe           Classe?                  @relation(fields: [classeId], references: [id])
+  classeId         Int?
+  power            Int
+  capaciteId       Int
+  capacite_passive Capacite?                @relation(fields: [capaciteId], references: [id])
+  passiveCondition String
+  capacite_actives CartesCapacictesActive[]
 }
 
 model Type {
-  id   Int    @id @default(autoincrement())
-  name String
+  id    Int     @id @default(autoincrement())
+  name  String
   Carte Carte[]
 }
 
 model Classe {
-  id   Int    @id @default(autoincrement())
-  name String
+  id    Int     @id @default(autoincrement())
+  name  String
   Carte Carte[]
 }
 
-model Capacite {
-  id          Int    @id @default(autoincrement())
+model Competence {
+  id          Int        @id @default(autoincrement())
   name        String
   description String
-  Carte        Carte?  @relation(fields: [carteId], references: [id])
-  carteId      Int?
+  Capacite    Capacite[]
 }
 
-model Competence {
-  id            Int     @id @default(autoincrement())
+model Capacite {
+  id            Int                      @id @default(autoincrement())
   name          String
-  type          String
   description   String
-  carte_passvie  Carte[]
-  carte_active   CartesCapacictesActive[]
+  competence    Competence?              @relation(fields: [competenceId], references: [id])
+  competenceId  Int?
+  carte_passive Carte[]
+  carte_actives CartesCapacictesActive[]
 }
 
 model CartesCapacictesActive {
-  competenceId  Int
-  competence    Competence @relation(fields: [competenceId], references: [id])
-  carteId        Int
-  carte          Carte     @relation(fields: [carteId], references: [id])
+  capaciteId Int
+  capacite   Capacite @relation(fields: [capaciteId], references: [id])
+  carteId    Int
+  carte      Carte    @relation(fields: [carteId], references: [id], onDelete: Cascade)
+  cost       Int
+  color      String
 
-  @@id([competenceId, carteId])
+  @@id([capaciteId, carteId])
 }

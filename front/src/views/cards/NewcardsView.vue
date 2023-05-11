@@ -1,14 +1,12 @@
 <template>
   <main>
     <h1>Nouvelle carte</h1>
-    name <input v-model="name" type="text" /> 
-    illustration <input v-model="illustration" type="text" /> 
-    power <input v-model="power" type="number" />
-    <button @click="createCard">Envoyer</button>
+    <CarteForm />
   </main>
 </template>
 
 <script>
+import CarteForm from "@/components/cartes/CarteForm.vue";
 export default {
   data() {
     return {
@@ -35,5 +33,15 @@ export default {
         .then((response) => console.log(response));
     },
   },
+  components: { CarteForm },
 };
 </script>
+
+<style lang="scss" scoped>
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding-bottom: 30px;
+}
+</style>

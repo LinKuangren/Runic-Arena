@@ -2,30 +2,30 @@ const express = require("express");
 const app = express();
 var cors = require("cors");
 
+var path = require("path");
+global.appRoot = path.resolve(__dirname);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('front'));
+app.use(express.static("public"));
 
 app.use(cors());
 
 // ROUTERS
-var globalRouter = require("./routes/global.js");
-var competencesRouter = require('./routes/competences');
-var typesRouter = require('./routes/types');
-var classesRouter = require('./routes/classes');
-var capacitesRouter = require('./routes/capacites');
-var cartesRouter = require('./routes/cartes');
+var competencesRouter = require("./routes/competences");
+var typesRouter = require("./routes/types");
+var classesRouter = require("./routes/classes");
+var capacitesRouter = require("./routes/capacites");
+var cartesRouter = require("./routes/cartes");
+var activesRouter = require("./routes/actives");
 
 // ROUTES
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use("/", globalRouter);
 app.use("/competences", competencesRouter);
 app.use("/types", typesRouter);
 app.use("/classes", classesRouter);
 app.use("/capacites", capacitesRouter);
 app.use("/cartes", cartesRouter);
-
+app.use("/actives", activesRouter);
 
 // SERVER
 const hostname = "127.0.0.1";

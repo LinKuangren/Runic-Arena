@@ -8,6 +8,7 @@ import NewcapacitesView from "../views/capacites/NewcapacitesView.vue";
 import EditcapacitesView from "../views/capacites/EditcapacitesView.vue";
 import CardsView from "../views/cards/CardsView.vue";
 import NewcardsView from "../views/cards/NewcardsView.vue";
+import EditCartesView from "../views/cards/EditCartesView.vue";
 import ClassesView from "../views/classes/ClassesView.vue";
 import NewclassesView from "../views/classes/NewclassesView.vue";
 import EditclassesView from "../views/classes/EditclassesView.vue";
@@ -87,6 +88,11 @@ const router = createRouter({
       path: "/cards",
       name: "cards",
       component: CardsView,
+    },
+    {
+      path: "/cartes/edit/:id",
+      name: "edit-cards",
+      component: EditCartesView,
     },
     {
       path: "/new-cards",
